@@ -10,7 +10,7 @@ class StoreController extends Controller
     
     public function index()
     {
-        $articulos=Articulo::All();
+        $articulos=Articulo::orderBy('id','ASC')->paginate(4);
         return view('almacen.articulo.lista',compact('articulos'));
       
     }

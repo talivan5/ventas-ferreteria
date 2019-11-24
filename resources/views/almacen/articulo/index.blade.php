@@ -28,11 +28,10 @@
 						<th>Nombre</th>
 						<th>Slug</th>
 						<th>Código</th>
-						<th>Precio</th>
-						<th>Categoría</th>
+						<th>Precio</th>						
 						<th>Imágen</th>
 						<th>Estado</th>
-						<th width="180">Opciones</th>
+						<th width="180">Opcionesggg</th>
 					</thead>
 					<tbody>
 						@foreach($articulos as $art)
@@ -42,7 +41,7 @@
 								<td>{{ $art->slug }}</td>
 								<td>{{ $art->codigo }}</td>
 								<td>{{ $art->stock }} bs.</td>
-								<td>{{ $art->categoria }}</td>
+								
 								<td>
 									<img src="{{ asset('imagenes/articulos/'.$art->imagen) }}" alt="{{ $art->nombre }}" height="100" width="100" class="img-thumbnail">
 								</td>
@@ -61,7 +60,9 @@
 					</tbody>
 				</table>
 			</div>
-		{{ $articulos->render() }}
+			<div class="pagination justify-content-center">
+				{{ $articulos->links() }}
+			</div>
 		</div>
 	</div>
 

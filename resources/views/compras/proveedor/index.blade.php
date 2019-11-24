@@ -2,7 +2,7 @@
 
 @section('header')
 	<h1>
-		Listado de Proveedores
+		Proveedores
 	</h1>
 @endsection
 
@@ -14,7 +14,7 @@
 		</div>
 		<div class="col-md-2">
 			<a href="proveedor/create" class="pull-right">
-				<button class="btn btn-success">Crear Proveedor</button>
+				<button class="btn btn-success">Crear</button>
 			</a>
 		</div>		
 	</div>
@@ -26,10 +26,10 @@
 					<thead>
 						<th>Id</th>
 						<th>Nombre</th>
-						<th>tipo_documento</th>
-						<th>num_documento</th>
-						<th>telefono</th>
-						<th>email</th>
+						<th>Tipo Documento</th>
+						<th>Numero Documento</th>
+						<th>Telefono</th>
+						<th>Email</th>
 						<th width="180">Opciones</th>
 					</thead>
 					<tbody>
@@ -43,10 +43,10 @@
 								<td>{{ $per->email }}</td>
 								<td>
 									<a href="{{ route('proveedor.edit', $per->id) }}">
-										<button class="btn btn-info">Editar</button>
+										<i class="fa fa-pencil"></i>
 									</a>
 									<a href="" data-target="#modal-delete-{{$per->id}}" data-toggle="modal">
-										<button class="btn btn-danger">Eliminar</button>
+										<i class="fa fa-trash"></i>
 									</a>
 								</td>
 							</tr>

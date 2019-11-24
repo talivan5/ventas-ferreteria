@@ -5,10 +5,11 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
+						<h3 class="modal-title">Eliminar Artículo</h3>
 					<button type="button" class="close" data-dismiss="modal">
 						<span aria-hidden>x</span>
 					</button>
-					<h4 class="modal-title">Eliminar Artículo</h4>
+					
 				</div>
 				<div class="modal-body">
 					<p>

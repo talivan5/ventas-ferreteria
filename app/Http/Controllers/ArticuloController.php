@@ -12,32 +12,17 @@ class ArticuloController extends Controller
 {
     public function __construct()
     {
-
+        $this->middleware('auth');
     }
     
     public function index(Request $request)
     {
-    	if ($request)
-    	{
-            // $articulos = Articulo::with('categoria')->get();         
-            // var_dump(Articulo::find(1)->categoria);
-            // var_dump(DB::getQueryLog());
-
-    		$query = trim($request->input('searchText'));
-
-            $articulos = DB::table('articulo as a')
-            ->join('categoria as c', 'a.id_categoria', '=', 'c.id')
-            ->select('a.id', 'a.nombre','a.slug', 'a.codigo', 'a.stock', 'a.descripcion', 'a.imagen', 'a.estado', 'c.nombre as categoria')
-            ->where('a.nombre', 'LIKE', "%$query%")
-            ->orwhere('a.codigo', 'LIKE', "%$query%")
-            ->orderBy('a.id', 'DESC')
-            ->paginate(5);
-
-    		return view('almacen.articulo.index', [
-				'articulos'=>$articulos, 
-				'searchText'=>$query
-			]);
-    	}
+    	
+        
+        $articulos=Articulo::orderBy('id','ASC')->paginate(5);
+        
+        return view('almacen.articulo.index',compact('articulos'));
+    	
     }
 
     public function create()
