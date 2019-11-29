@@ -40,10 +40,10 @@
 							<td>{{ $cat->descripcion }}</td>
 							<td>
 								<a href="{{ route('categoria.edit', $cat->id) }}">
-									<button class="btn btn-info">Editar</button>
+									<i class="fa fa-pencil"></i>
 								</a>
 								<a href="" data-target="#modal-delete-{{$cat->id}}" data-toggle="modal">
-									<button class="btn btn-danger">Eliminar</button>
+									<i class="fa fa-trash"></i>
 								</a>
 							</td>
 						</tr>

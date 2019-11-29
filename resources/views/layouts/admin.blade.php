@@ -69,10 +69,10 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="#" class="btn btn-default btn-flat">Perfil</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="#" class="btn btn-default btn-flat">Ingresar</a>
                 </div>
               </li>
             </ul>
@@ -110,7 +110,7 @@
           </a>
           <ul class="treeview-menu">
             <li>
-              <a href="{{ route('articulo.index') }}">
+              <a href="{{ url('almacen/articulo') }}">
                 <i class="fa fa-circle-o"></i>
                 Artículos
               </a>
@@ -182,6 +182,28 @@
               <a href="{{ route('cart-show') }}">
                 <i class="fa fa-cart-plus"></i>
                 Carrito
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-link"></i> <span>Reportes</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o"></i>
+                Por ventas
+              </a>
+            </li>
+            <li>
+              <a href="{{ route('reporte-ventas') }}">
+                <i class="fa fa-cart-plus"></i>
+                Por Usuario
               </a>
             </li>
           </ul>

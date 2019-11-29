@@ -14,7 +14,7 @@
 		</div>
 		<div class="col-md-2">
 			<a href="articulo/create" class="pull-right">
-				<button class="btn btn-success">Crear Artículo</button>
+				<button class="btn btn-success">Crear</button>
 			</a>
 		</div>		
 	</div>
@@ -31,7 +31,7 @@
 						<th>Precio</th>						
 						<th>Imágen</th>
 						<th>Estado</th>
-						<th width="180">Opcionesggg</th>
+						<th width="180">Opciones</th>
 					</thead>
 					<tbody>
 						@foreach($articulos as $art)
@@ -48,10 +48,10 @@
 								<td>{{ $art->estado }}</td>
 								<td>
 									<a href="{{ route('articulo.edit', $art->id) }}">
-										<button class="btn btn-info">Editar</button>
+										<i class="fa fa-pencil"></i>
 									</a>
 									<a href="" data-target="#modal-delete-{{$art->id}}" data-toggle="modal">
-										<button class="btn btn-danger">Eliminar</button>
+										<i class="fa fa-trash"></i>
 									</a>
 								</td>
 							</tr>

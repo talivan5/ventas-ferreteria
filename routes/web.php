@@ -62,6 +62,10 @@ Route::get('cart/update/{articulo}/{cantidad?}',[
 Route::get('order-detail',[
     'as'=>'order-detail',
     'uses'=>'CartController@orderDetail']);
+
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
+Route::get('pdf',[
+    'as'=>'reporte-ventas',
+    'uses'=>'ReporteController@reporteuser']);
