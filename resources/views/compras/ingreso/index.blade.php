@@ -1,13 +1,6 @@
-@extends('layouts.admin')
-
-@section('header')
-	<h1>
-		Listado de Ingreso
-	</h1>
-@endsection
-
-@section('content')
-
+@extends('tema.layouts')
+@section('contenido')
+<br>
 	<div class="row">
 		<div class="col-md-8 col-xs-12">
 			@include('compras.ingreso.search')

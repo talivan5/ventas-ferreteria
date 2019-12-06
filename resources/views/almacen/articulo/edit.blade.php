@@ -1,14 +1,7 @@
-@extends('layouts.admin')
+@extends('tema.layouts')
+@section('contenido')
 
-@section('header')
-	<h1>
-		Editar Artículo: {{ $articulo->nombre }}
-	</h1>
-@endsection
-
-@section('content')
-
-	<div class="row">
+  <div class="row">
 		<div class="col-md-12 col-xs-12">
 			@if(count($errors)>0)
 			<div class="alert alert-danger">

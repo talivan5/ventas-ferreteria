@@ -1,10 +1,5 @@
-@extends('layouts.admin')
-
-@section('header')
-	
-@endsection
-
-@section('content')
+@extends('tema.layouts')
+@section('contenido')
 
 <h1><i class="fa fa-cart-plus"></i>Detalle del Articulo</h1>
        

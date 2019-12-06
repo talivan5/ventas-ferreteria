@@ -1,11 +1,5 @@
-@extends('layouts.admin')
-
-@section('header')
-	
-@endsection
-
-@section('content')
-
+@extends('tema.layouts')
+@section('contenido')
 <div class="container text-center">
 
    <div class="page-header">

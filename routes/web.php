@@ -16,9 +16,10 @@ Route::bind('articulo',function($slug){
 });
 
 Route::get('/',[
-    'as'=>'home',
+    'as'=>'/',
     'uses'=>'StoreController@index']);
 
+Auth::routes();    
 Route::resource('/almacen/categoria', 'CategoriaController');
 
 Route::resource('/almacen/articulo', 'ArticuloController');
@@ -65,7 +66,18 @@ Route::get('order-detail',[
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
+//Rutas de los reportes
 Route::get('pdf',[
-    'as'=>'reporte-ventas',
+    'as'=>'reporte-articulo',
+    'uses'=>'ReporteController@reportearticulos']);
+
+Route::get('pdfuser',[
+    'as'=>'reporte-user',
     'uses'=>'ReporteController@reporteuser']);
+
+Route::get('pdfventas',[
+    'as'=>'reporte-ventas',
+    'uses'=>'ReporteController@reporteventas']);
+
+
+//Route::get('/home', 'HomeController@index')->name('home');

@@ -1,10 +1,6 @@
-@extends('layouts.admin')
-
-@section('header')
-	
-@endsection
-@section('content')
-@include('layouts.slider')
+@extends('tema.layouts')
+@section('contenido')
+@include('tema/slider')
 <hr>
 <div class="row">
 	@foreach($articulos as $art)
@@ -26,6 +22,4 @@
 <div class="pagination justify-content-center">
 	{{ $articulos->links() }}
 </div>
-
-
 @endsection

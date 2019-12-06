@@ -6,23 +6,21 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Http\Requests\ArticuloFormRequest;
 use App\Articulo;
+
 use DB;
 
 class ArticuloController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-    	
-        
         $articulos=Articulo::orderBy('id','ASC')->paginate(5);
-        
         return view('almacen.articulo.index',compact('articulos'));
-    	
     }
 
-    public function create()
+    public function create(Request $request)
     {
         //Para el select form
+        $request->user()->authorizeRoles(['user']);
         $categorias = DB::table('categoria')->where('condicion', '=', '1')->get();
 
         return view('almacen.articulo.create',['categorias' => $categorias]);

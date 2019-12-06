@@ -1,13 +1,6 @@
-@extends('layouts.admin')
-
-@section('header')
-	<h1>
-		Nuevo Artículo
-	</h1>
-@endsection
-
-@section('content')
-
+@extends('tema.layouts')
+@section('contenido')
+<br>
 	<div class="row">
 		<div class="col-md-12 col-xs-12">
 			@if(count($errors)>0)
