@@ -34,7 +34,7 @@ class User extends Authenticatable
     public function authorizeRoles($roles)
     {
         if($this->hasAnyRole($roles)){
-           return true;  
+           return true;                                                                                                                                                                                                                                                                                                                                                                                                                         
         }
         abort(401);  
         return false;

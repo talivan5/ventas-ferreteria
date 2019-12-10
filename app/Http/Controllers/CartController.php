@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Http\Requests\ArticuloFormRequest;
 use App\Articulo;
+use App\VentaArticulo;
+use Illuminate\Support\Facades\Auth;
 use DB;
+use SebastianBergmann\Environment\Console;
 
 class CartController extends Controller
 {
@@ -74,6 +77,28 @@ class CartController extends Controller
         $total=$this->total();
 
         return view('almacen.articulo.order-detail',compact('cart','total'));
+    }
+    public function imprimirDedalle()
+    {
+        $users= Auth::user();
+              
+        if(count(\Session::get('cart'))<=0) return redirect()->route('home');
+        $cart = \Session::get('cart');
+        $total=$this->total();
+
+        return view('reportes.imprimir',compact('cart','total','users'));
+    }
+    public function guardar(Request $request){
+        dd($request);
+        $venta = new VentaArticulo;
+        $venta->id_articulo = $request->id_articulo;
+        $venta->cantidad = $request->cantidad;
+    	$venta->subtotal = $request->subtotal;
+    	$venta->total = $request->total;
+    	$venta->save();       
+   
+        return view('ventas.save',compact('venta'));
+        //return view('ventas.save');
     }
 
 }

@@ -10,7 +10,7 @@
       <h5 class="card-text">Precio: {{$articulos->stock}} bs.</h5>
       <p class="card-text">Descripción: {{$articulos->descripcion}}</p>
       <a href="{{ route('cart-add',$articulos->slug) }}" class="btn btn-primary">Comprar</a>
-      <a href="{{ route('home') }}" class="btn btn-success">Volver</a>
+      <a href="{{ route('/') }}" class="btn btn-success">Volver</a>
     </div>              
 </div> 
     

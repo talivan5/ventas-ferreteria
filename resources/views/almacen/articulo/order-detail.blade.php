@@ -34,6 +34,12 @@
         <a href="https://www.paypal.com/ar/signin" class="btn btn-primary">
             Pagar con <i class="fa fa-cc-paypal fa-2x"></i>
         </a>
+        <a href="{{route('imprimir')}}" class="btn btn-info">
+            <i class="fa fa-print fa-2x" aria-hidden="true"></i>
+            Descargar comprobante</a>
+        <a href="{{route('guardar',$item)}}" class="btn btn-info">
+            <i class="fa fa-save fa-2x" aria-hidden="true"></i>
+            Guardar compra</a>
     </p>
 
 </div>

@@ -28,7 +28,7 @@
             <tbody>
                 @foreach ($cart as $item)
                     <tr>
-                        <th><img class="card-img-top" src="{{ asset('imagenes/articulos/'.$item->imagen) }}" alt="" style="width: 30%"></th>
+                        <th><img class="card-img-top" src="{{$item->imagen}}" alt="" style="width: 30%"></th>
                         <th>{{$item->nombre}}</th>
                         <th>{{$item->stock}}</th>
                         <th>
@@ -43,7 +43,7 @@
                                     href="#"
                                     class="btn btn-warning btn-update-item"
                                     data-href="{{ route('cart-update', $item->slug) }}"
-                                    data-id="{{ $item->id }}"
+                                    data-id="{{ $item->id }}"                                    
                             >
                                     <i class="fa fa-refresh"></i>
                             </a>
@@ -69,7 +69,7 @@
     @endif
     <hr>
     <p>
-        <a href="{{route('home')}}" class="btn btn-primary">
+        <a href="{{route('/')}}" class="btn btn-primary">
             <i class="fa fa-chevron-circle-left"></i>Seguir Comprando
         </a>
         <a href="{{ route('order-detail')}}" class="btn btn-primary">

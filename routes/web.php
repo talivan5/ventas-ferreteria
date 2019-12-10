@@ -19,7 +19,7 @@ Route::get('/',[
     'as'=>'/',
     'uses'=>'StoreController@index']);
 
-Auth::routes();    
+  
 Route::resource('/almacen/categoria', 'CategoriaController');
 
 Route::resource('/almacen/articulo', 'ArticuloController');
@@ -35,10 +35,13 @@ Route::get('articulo/{slug}',[
     'uses'=>'StoreController@show'
 ]);
 
-Route::get('cart/show',[
+Route::get('show',[
     'as'=>'cart-show',
     'uses'=>'CartController@show'
 ]);
+
+Route::post('guardar/{item}','CartController@guardar')->name('guardar');
+
 
 Route::get('cart/add/{articulo}',[
     'as' => 'cart-add',
@@ -60,6 +63,7 @@ Route::get('cart/update/{articulo}/{cantidad?}',[
     'uses' => 'CartController@update'
 ]);
 
+
 Route::get('order-detail',[
     'as'=>'order-detail',
     'uses'=>'CartController@orderDetail']);
@@ -67,6 +71,10 @@ Route::get('order-detail',[
 Auth::routes();
 
 //Rutas de los reportes
+Route::get('imprimir',[
+    'as'=>'imprimir',
+    'uses'=>'CartController@imprimirDedalle']);
+
 Route::get('pdf',[
     'as'=>'reporte-articulo',
     'uses'=>'ReporteController@reportearticulos']);
