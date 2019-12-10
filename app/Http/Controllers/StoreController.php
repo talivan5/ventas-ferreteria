@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Articulo;
+
 class StoreController extends Controller
 {
      
     public function index()
-    {
+    {   
         $articulos=Articulo::orderBy('id','ASC')->paginate(4);
         return view('almacen.articulo.lista',compact('articulos'));
     }

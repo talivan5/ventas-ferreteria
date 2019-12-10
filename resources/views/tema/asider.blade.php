@@ -23,8 +23,11 @@
     <nav class="mt-2">
        
        <!--de aqui para adelante esta para cliente-->
-       @if( Auth::user())
+       
      <!-- -->
+     <?php 
+     {{ Auth::user()->name }}
+     ?>
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
@@ -129,7 +132,7 @@
           </ul>
           
           <!--fin de usuario de cliente-->
-          @else 
+          
            <!--de aqui para adelante esta para cliente-->
        
            <!--de aqui para adelante esta para admin-->
@@ -236,7 +239,7 @@
         
       </ul>     
       
-      @endif
+    
     </nav>
     <!-- /.sidebar-menu -->
   </div>
