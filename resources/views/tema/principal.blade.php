@@ -34,18 +34,18 @@
   
   
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
+<body>
 <div class="wrapper">
-        @include('tema.asider')
-        @include('tema.header')
-        <div class="content-wrapper">
-            <section class="container">
-                @yield('contenido')                
-            </section>
+        @include('tema.headerP')
+        @include('tema/slider')
+        <div class="container">
+          @yield('contenido')                
         </div>
+          
+          
     
 </div>
-@include("tema/footer")
+@include("tema/footerP")
 <!-- jQuery -->
 <script src="{{asset('asset/plugins/jquery/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->

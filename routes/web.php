@@ -19,6 +19,10 @@ Route::get('/',[
     'as'=>'/',
     'uses'=>'StoreController@index']);
 
+Route::get('inicio',[
+    'as'=>'inicio',
+    'uses'=>'StoreController@inicio']);
+
   
 Route::resource('/almacen/categoria', 'CategoriaController');
 

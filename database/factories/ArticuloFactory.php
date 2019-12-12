@@ -12,7 +12,8 @@ $factory->define(App\Articulo::class, function (Faker $faker) {
         'slug' => $faker->sentence,
         'stock' => rand(5,250),
         'descripcion' => $faker->sentence(3),
-        'imagen' => $faker->imageUrl()
+        'imagen' => $faker->imageUrl(),
+        'estado'=>'Activo'
         
 
     ];

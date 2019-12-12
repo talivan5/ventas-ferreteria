@@ -10,8 +10,12 @@ class StoreController extends Controller
      
     public function index()
     {   
-        $articulos=Articulo::orderBy('id','ASC')->paginate(4);
+        $articulos=Articulo::orderBy('id','ASC')->paginate(6);
         return view('almacen.articulo.lista',compact('articulos'));
+    }
+    public function inicio(){
+        $articulos=Articulo::orderBy('id','ASC')->paginate(6);
+        return view('inicio',compact('articulos'));
     }
 
     public function show($slug)

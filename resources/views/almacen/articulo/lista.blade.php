@@ -1,10 +1,10 @@
-@extends('tema.layouts')
+@extends('tema.principal')
 @section('contenido')
-@include('tema/slider')
+
 <hr>
 <div class="row">
 	@foreach($articulos as $art)
-	<div class="col-sm-6">	
+	<div class="col-sm-4">	
 		<div class="card alert alert-primary" style="width: 18rem;">
 			<div class="card-body">			
 				<img class="card-img-top" src="{{$art->imagen}}" alt="" style="size: 10cm">
