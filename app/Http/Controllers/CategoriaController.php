@@ -12,7 +12,24 @@ class CategoriaController extends Controller
     {
 
     }
+    public function indexcliente(Request $request)
+    {
+    	if ($request)
+    	{
+           
+    		$query = trim($request->input('searchText'));
 
+    		$categorias = Categoria::where('nombre', 'LIKE', "%$query%")
+    			->where('condicion','=','1')
+    			->orderBy('id', 'DESC')
+                ->paginate(8);
+
+    		return view('cliente/categoria', [
+				'categorias'=>$categorias, 
+				'searchText'=>$query
+			]);
+    	}
+    }
     public function index(Request $request)
     {
     	if ($request)

@@ -13,9 +13,19 @@ class StoreController extends Controller
         $articulos=Articulo::orderBy('id','ASC')->paginate(6);
         return view('almacen.articulo.lista',compact('articulos'));
     }
-    public function inicio(){
-        $articulos=Articulo::orderBy('id','ASC')->paginate(6);
-        return view('inicio',compact('articulos'));
+    public function inicio(Request $request){
+        if ($request)
+    	{
+            $query = trim($request->input('searchText'));
+            $articulos = Articulo::where('nombre', 'LIKE', "%$query%")
+    			->where('condicion','=','1')
+    			->orderBy('id', 'DESC')
+                ->paginate(4);
+            return view('inicio', [
+                'articulos'=>$articulos, 
+                'searchText'=>$query
+            ]);
+        }
     }
     public function inicioAdmin(){
         $articulos=Articulo::orderBy('id','ASC')->paginate(6);

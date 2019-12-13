@@ -37,10 +37,12 @@
           </a>         
         </li>
         <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-                <i class="nav-icon fa fa-link"></i>   
-                    Compras
-            </a>         
+          <a href="{{ url('cliente/categoria') }}" class="nav-link">
+            <i class="fa fa-renren" aria-hidden="true"></i>
+              <p>
+                  Categorias
+              </p>
+          </a>            
         </li>
         <li class="nav-item">
           <a href="{{ route('cart-show') }}" class="nav-link">

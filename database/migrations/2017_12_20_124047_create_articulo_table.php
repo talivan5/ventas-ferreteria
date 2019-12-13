@@ -25,6 +25,7 @@ class CreateArticuloTable extends Migration
             $table->text('descripcion');
             $table->string('imagen', 128)->nullable();
             $table->string('estado', 50)->nullable();
+            $table->boolean('condicion');
 
             $table->timestamps();
 

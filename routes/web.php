@@ -27,7 +27,10 @@ Route::get('inicioAdmin',[
     'as'=>'inicioAdmin',
     'uses'=>'StoreController@inicioAdmin']);
 
-  
+Route::get('cliente/categoria',[
+    'as'=>'cliente/categoria',
+    'uses'=>'CategoriaController@indexcliente']);
+    
 Route::resource('/almacen/categoria', 'CategoriaController');
 
 Route::resource('/almacen/articulo', 'ArticuloController');
