@@ -4,7 +4,7 @@
 	  <div class="carousel-item active">
 		<img class="d-block w-100" src="{{ asset('image/Ferreteria_1.jpg') }}" alt="First slide">
 		<div class="carousel-caption d-none d-md-block" style="background-color: black;">
-			<h1>FERRETERIA FLAWERS</h1>
+			<h1>FERRETERIA FLOWERS</h1>
 		</div>
 		</div>
 	  <div class="carousel-item">

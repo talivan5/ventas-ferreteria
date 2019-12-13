@@ -7,7 +7,7 @@
 		</div>
 		<div class="col-md-2">
 			<a href="categoria/create" class="pull-right">
-				<button class="btn btn-success">Crear Categoría</button>
+				<button class="btn btn-success">Crear</button>
 			</a>
 		</div>		
 	</div>
