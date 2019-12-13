@@ -7,14 +7,14 @@
       <li class="nav-item d-none d-sm-inline-block">
             <a href="{{ route('inicioAdmin') }}" class="nav-link">Inicio</a>
           </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contactos</a>
-      </li>
+    <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link" data-toggle="modal" data-target="#contactoModal">Contactos</a>
+    </li>
     </ul> 
     
   
     <!-- Right navbar links -->
-    
+ 
 <ul class="navbar-nav ml-auto">
         <!-- Authentication Links -->
         @guest
@@ -50,6 +50,62 @@
         @endguest
         </ul>
   </nav>
+<!-- Modal contacto -->
+<div class="modal fade" id="contactoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Contactos</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <table class="table">
+                <thead>
+                    
+                </thead>
+                <tbody>
+                    <tr>                    
+                    <td><i class="fa fa-home" aria-hidden="true"></i>
+                    </td>
+                    <td>
+                        La Rioja, Argentina.                        
+                        8 DE DICIEMBRE 439 - CO F5300EHI
+                    </td>                   
+                    </tr>
+                    <tr>                   
+                    <td><i class="fa fa-phone" aria-hidden="true"></i>
+                    </td>
+                    <td>
+                        54 (0380) 4427845 / 4428999                        
+                        LUNES A VIERNES 08:00 A 12.30 HS. y 16:00 A 20: 30 HS.                        
+                        SABADOS 08:00 A 13:00 HS.
+                    </td>                   
+                    </tr>
+                    <tr>                   
+                    <td><i class="fa fa-envelope-o" aria-hidden="true"></i>
+                    </td>
+                    <td>
+                        firmalr@arnet.com.ar                            
+                        Enviános un mail en cualquier momento!                            
+                    </td>                  
+                    </tr>
+                    <tr>
+                        <td>
+                        
+
+                        </td>
+                    </tr>
+                </tbody>
+                </table>
+        </div>
+        <div class="modal-footer">
+            
+        </div>
+        </div>
+    </div>
+</div>
 <!-- Modal del Login -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
