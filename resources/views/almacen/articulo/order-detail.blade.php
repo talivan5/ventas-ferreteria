@@ -36,10 +36,8 @@
         </a>
         <a href="{{route('imprimir')}}" class="btn btn-info">
             <i class="fa fa-print fa-2x" aria-hidden="true"></i>
-            Descargar comprobante</a>
-        <a href="{{route('guardar',$item)}}" class="btn btn-info">
-            <i class="fa fa-save fa-2x" aria-hidden="true"></i>
-            Guardar compra</a>
+            Descargar comprobante
+        </a>       
     </p>
 
 </div>

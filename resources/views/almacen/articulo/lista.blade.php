@@ -2,6 +2,7 @@
 @section('contenido')
 
 <hr>
+
 <div class="row">
 	@foreach($articulos as $art)
 	<div class="col-sm-4">	
@@ -11,15 +12,37 @@
 				<h5 class="card-title">Nombre: {{$art->nombre}}</h5><hr>
 				<h6 class="card-text">Precio: {{$art->stock}} bs.</h6>
 				<p class="card-text">Descripción: {{$art->descripcion}}</p>						
-				<a class="btn btn-primary" href="{{ route('cart-add',$art->slug) }}">comprar</a>			
-				<a class="btn btn-info" href="{{ route('articulo-detalle', $art->slug) }}">Detalle</a>				
+				<button type="button" class="btn btn-success" data-toggle="modal" data-target="#ingresar">
+					Comprar
+				  </button>				
+				<a data-toggle="modal" data-target="#modal-detalle-{{$art->id}}" class="btn btn-info">Detalle</a>	
 			</div>
 		</div>
-
+		
 	</div>	
+	@include('almacen.articulo.modalDetalle')
 	@endforeach
 </div>
 <div class="pagination justify-content-center">
 	{{ $articulos->links() }}
+</div>
+
+<div class="modal fade" id="ingresar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalCenterTitle">Aviso</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<div class="modal-body">
+			<h1>Se tiene que registrar o ingresar con su cuenta</h1>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+		</div>
+		</div>
+	</div>
 </div>
 @endsection

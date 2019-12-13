@@ -17,6 +17,10 @@ class StoreController extends Controller
         $articulos=Articulo::orderBy('id','ASC')->paginate(6);
         return view('inicio',compact('articulos'));
     }
+    public function inicioAdmin(){
+        $articulos=Articulo::orderBy('id','ASC')->paginate(6);
+        return view('inicioAdmin',compact('articulos'));
+    }
 
     public function show($slug)
     {

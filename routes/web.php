@@ -23,6 +23,10 @@ Route::get('inicio',[
     'as'=>'inicio',
     'uses'=>'StoreController@inicio']);
 
+Route::get('inicioAdmin',[
+    'as'=>'inicioAdmin',
+    'uses'=>'StoreController@inicioAdmin']);
+
   
 Route::resource('/almacen/categoria', 'CategoriaController');
 
@@ -44,7 +48,7 @@ Route::get('show',[
     'uses'=>'CartController@show'
 ]);
 
-Route::post('guardar/{item}','CartController@guardar')->name('guardar');
+Route::post('guardar/{item}','CartController@guardar');
 
 
 Route::get('cart/add/{articulo}',[

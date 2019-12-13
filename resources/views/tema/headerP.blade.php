@@ -51,7 +51,7 @@
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('logout') }}"
+                    <a class="dropdown-item" href="{{ route('inicio') }}"
                         onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
                         {{ __('Salir') }}
@@ -70,20 +70,59 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Nos puede encontrar</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Contactos</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <span>Celular:<p>66666666</p></span>
-        </div>
-        <div class="modal-footer">
-          
-        </div>
+            <table class="table">
+                <thead>
+                 
+                </thead>
+                <tbody>
+                  <tr>                    
+                    <td><i class="fa fa-home" aria-hidden="true"></i>
+                    </td>
+                    <td>
+                        La Rioja, Argentina.
+                        
+                        8 DE DICIEMBRE 439 - CO F5300EHI
+                    </td>                   
+                  </tr>
+                  <tr>                   
+                    <td><i class="fa fa-phone" aria-hidden="true"></i>
+                    </td>
+                    <td>
+                        54 (0380) 4427845 / 4428999
+                        
+                        LUNES A VIERNES 08:00 A 12.30 HS. y 16:00 A 20: 30 HS.
+                        
+                        SABADOS 08:00 A 13:00 HS.
+                    </td>                   
+                  </tr>
+                  <tr>                   
+                    <td><i class="fa fa-envelope-o" aria-hidden="true"></i>
+                    </td>
+                    <td>
+                            firmalr@arnet.com.ar
+                            
+                            Enviános un mail en cualquier momento!
+                            
+                    </td>                  
+                  </tr>
+                  <tr>
+                      <td>
+                        
+
+                      </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>       
       </div>
     </div>
-  </div>
+</div>
 <!-- Modal del Login -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">

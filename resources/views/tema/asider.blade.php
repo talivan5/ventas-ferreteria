@@ -31,105 +31,24 @@
           <a href="#" class="nav-link">Menu Usuario</a> 
         </li>
         <li class="nav-item has-treeview">
-          <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-link"></i>
-              <p>
-                 Almacen
-                  <i class="right fas fa-angle-left"></i>
-              </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-                <a href="" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  Artículos
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  Categorías
-                </a>
-            </li>
-          </ul>
+          <a href="{{ route('inicio') }}" class="nav-link">
+            <i class="far fa-circle nav-icon"></i>
+            Artículos
+          </a>         
         </li>
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-                <i class="nav-icon fa fa-link"></i>
-                <p>
+                <i class="nav-icon fa fa-link"></i>   
                     Compras
-                    <i class="right fas fa-angle-left"></i>
-                </p>
-            </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-                <a href="" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    Proveedores
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    Ingresos
-                </a>
-            </li>
-          </ul>
+            </a>         
         </li>
-        <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-                <i class="nav-icon fa fa-link"></i>
-                <p>
-                    Ventas
-                    <i class="right fas fa-angle-left"></i>
-                </p>
-            </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  Clientes
-              </a>
-            </li>
-            <li class="nav-item">
-                <a href="" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    Carrito
-                  </a>
-            </li>           
-          </ul>
-        </li>
-        
-        <li class="nav-item has-treeview">
-          <a href="#" class="nav-link">
-            <i class="fa fa-link"></i>
-            <p>
-              Reportes
-              <i class="fas fa-angle-left right"></i>
-            </p>
+        <li class="nav-item">
+          <a href="{{ route('cart-show') }}" class="nav-link">
+            <i class="far fa-circle nav-icon"></i>
+            Carrito
           </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-                <a href="" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    Por ventas
-                </a>
-            </li>
-            <li class="nav-item">
-              <a href="" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  Por Usuario
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                 dos
-              </a>
-            </li>
-          </ul>
-        </li>
-        
+        </li>      
+  
       </ul>  
     
     <!--fin de usuario de cliente-->
@@ -199,13 +118,7 @@
                   <i class="far fa-circle nav-icon"></i>
                   Clientes
               </a>
-            </li>
-            <li class="nav-item">
-                <a href="{{ route('cart-show') }}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    Carrito
-                  </a>
-            </li>           
+            </li>                    
           </ul>
         </li>
         
