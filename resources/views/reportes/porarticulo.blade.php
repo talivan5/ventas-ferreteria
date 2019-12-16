@@ -26,13 +26,15 @@
             </tr>
         </thead>
         <tbody>
+            <?php $index=1; ?>
             @foreach ($articulo as $articulos)
             <tr>
-                <td>{{$articulos->id}}</td>
+                <td>{{$index}}</td>
                 <td>{{$articulos->nombre}}</td>
                 <td>{{$articulos->stock}}</td>  
                 <td>{{$articulos->descripcion }}</td>                         							
             </tr>
+            <?php $index++;?>
             @endforeach						
         </tbody>
     </table>

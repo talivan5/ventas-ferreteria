@@ -11,12 +11,12 @@
             border-radius: 25px;
         }
     </style>
-
+<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
 </head>
 <body>
     <img class="imagen" src="./image/ferreteria-3.jpg" alt="">
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
@@ -26,13 +26,15 @@
             </tr>
         </thead>
         <tbody >
+                <?php $index=1; ?>
             @foreach ($user as $usuario)
             <tr>
-                <td>{{$usuario->id}}</td>
+                <td>{{$index}}</td>
                 <td>{{$usuario->name}}</td>
                 <td>{{$usuario->email}}</td>
                 <td>{{$usuario->active}}</td>               							
             </tr>
+            <?php $index++;?>
             @endforeach						
         </tbody>
     </table>

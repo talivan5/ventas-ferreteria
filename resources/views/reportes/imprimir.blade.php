@@ -2,75 +2,73 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    
     <title>Comprobante</title>
 </head>
 <body>       
-    
+    <br><br>
 <div class="container text-center">
 
 <div class="page-header">
-    <h1><i class="fa fa-shopping-cart">Detalle del Pedido</i></h1>
+    <h1>Detalle de la Compra</h1>
 </div>
-                            
-    @foreach ($cart as $item)        
-        <form method="POST">
-            @csrf
-            <hr> 
-            <h3>Datos del Cliente</h3>
-            <div class="form-group row">
-                <label for="staticEmail" class="col-sm-2 col-form-label">Nombre</label>
-                <div class="col-sm-10">
-                <input type="text" readonly class="form-control-plaintext" id="{{ Auth::user()->name }}" value="{{ Auth::user()->name }}">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
-                <input type="text" readonly class="form-control-plaintext" id="{{ Auth::user()->email }}" value="{{ Auth::user()->email }}">
-                </div>
-            </div> 
-            <hr> 
-            <h3>Datos del Producto</h3>
-            <hr> 
-            <div class="form-group row">
-                <label for="staticEmail" class="col-sm-2 col-form-label">Poducto</label>
-                <div class="col-sm-10">
-                <input type="text" readonly class="form-control-plaintext" id="{{$item->nombre}}" value="{{$item->nombre}}">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="staticEmail" class="col-sm-2 col-form-label">Precio</label>
-                <div class="col-sm-10">
-                <input type="text" readonly class="form-control-plaintext" id="{{$item->stock}}" value="{{$item->stock}}">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="staticEmail" class="col-sm-2 col-form-label">Cantidad</label>
-                <div class="col-sm-10">
-                <input type="text" readonly class="form-control-plaintext" id="{{$item->cantidad}}" value="{{$item->cantidad}}">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="staticEmail" class="col-sm-2 col-form-label">Subtotal</label>
-                <div class="col-sm-10">
-                <input type="text" readonly class="form-control-plaintext" id="{{$item->stock*$item->cantidad}}" value="{{$item->stock*$item->cantidad}}">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="staticEmail" class="col-sm-2 col-form-label">Total a pagar</label>
-                <div class="col-sm-10">
-                <input type="text" readonly class="form-control-plaintext" id="{{$total}}" value="{{$total}}Bs.">
-                </div>
-            </div>
+
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+        <th scope="col" colspan="2"><h3>Datos del Cliente</h3></th>     
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <td> Nombre:</td>
+        <td style="text-align: left">{{ Auth::user()->name }}</td>
+        </tr>
+        <tr>
+        <td scope="row">Email:</td>
+        <td style="text-align: left">{{ Auth::user()->email }}</td>
+        </tr>          
+    </tbody>
+</table>
+<br>
+<hr>
+<table class="table">
+    <thead class="thead-dark">
+      <tr class="thead-light">
+         <th scope="col" colspan="5"><h3>Datos de los Productos</h3></th>     
+      </tr>     
+      <tr>
+        <th scope="col">N°</th>
+        <th scope="col">Producto</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Cantidad</th>
+        <th scope="col">Subtotal</th>
+      </tr>
+    </thead>
+    <?php $index=1; ?>
+    @foreach ($cart as $item) 
+    <tbody>
+      <tr>
+        <th scope="row">{{$index}}</th>
+        <td>{{$item->nombre}}</td>
+        <td>{{$item->stock}}</td>
+        <td>{{$item->cantidad}}</td>
+        <td>{{$item->stock*$item->cantidad}}</td>
+      </tr>    
+      <tr class="table-danger">
+          <td colspan="4">Total a pagar:</td>
+          <td>{{$total}}Bs.</td>
+      </tr>
+    </tbody>
+    <?php $index++;?>
+    @endforeach 
+  </table>                         
+          
             {{-- <a href="{{route('guardar',$item)}}" class="btn btn-info">
             <i class="fa fa-save fa-2x" aria-hidden="true"></i>
             Guardar compra</a> --}}
-        </form>
-    @endforeach              
-
 </div>
 </body>
 </html>

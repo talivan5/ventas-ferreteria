@@ -26,9 +26,10 @@
 						<th width="180">Opciones</th>
 					</thead>
 					<tbody>
+						<?php $index=1;?>
 						@foreach($personas as $per)
 							<tr>
-								<td>{{ $per->id }}</td>
+								<td>{{ $index }}</td>
 								<td>{{ $per->nombre }}</td>
 								<td>{{ $per->tipo_documento }}</td>
 								<td>{{ $per->num_documento }}</td>
@@ -44,6 +45,7 @@
 								</td>
 							</tr>
 						@include('compras.proveedor.modal')
+						<?php $index++; ?>
 						@endforeach
 					</tbody>
 				</table>

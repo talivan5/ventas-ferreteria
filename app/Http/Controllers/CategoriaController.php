@@ -21,7 +21,7 @@ class CategoriaController extends Controller
 
     		$categorias = Categoria::where('nombre', 'LIKE', "%$query%")
     			->where('condicion','=','1')
-    			->orderBy('id', 'DESC')
+    			->orderBy('id', 'ASC')
                 ->paginate(8);
 
     		return view('cliente/categoria', [
@@ -46,7 +46,7 @@ class CategoriaController extends Controller
 
     		$categorias = Categoria::where('nombre', 'LIKE', "%$query%")
     			->where('condicion','=','1')
-    			->orderBy('id', 'DESC')
+    			->orderBy('id', 'ASC')
                 ->paginate(5);
 
     		return view('almacen.categoria.index', [

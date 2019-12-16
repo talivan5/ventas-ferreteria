@@ -24,9 +24,10 @@
 						<th width="180">Opciones</th>
 					</thead>
 					<tbody>
+						<?php $index=1;?>
 						@foreach($categorias as $cat)
 						<tr>
-							<td>{{ $cat->id }}</td>
+							<td>{{ $index }}</td>
 							<td>{{ $cat->nombre }}</td>
 							<td>{{ $cat->slug }}</td>
 							<td>{{ $cat->descripcion }}</td>
@@ -41,7 +42,7 @@
 						</tr>
 
 						@include('almacen.categoria.modal')
-
+						<?php $index++; ?>
 						@endforeach
 					</tbody>
 				</table>

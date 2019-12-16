@@ -27,9 +27,10 @@
 						<th width="180">Opciones</th>
 					</thead>
 					<tbody>
+						<?php $index=1;?>
 						@foreach($ingresos as $ing)
 						<tr>
-							<td>{{ $ing->id }}</td>
+							<td>{{ $index }}</td>
 							<td></td>
 							<td>{{ $ing->nombre }}</td>
 							<td>
@@ -53,6 +54,7 @@
 							</td>
 						</tr>
 						@include('compras.ingreso.modal')
+						<?php $index++; ?>
 						@endforeach
 					</tbody>
 				</table>

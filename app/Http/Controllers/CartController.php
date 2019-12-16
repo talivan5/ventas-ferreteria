@@ -85,8 +85,11 @@ class CartController extends Controller
         if(count(\Session::get('cart'))<=0) return redirect()->route('home');
         $cart = \Session::get('cart');
         $total=$this->total();
-
-        return view('reportes.imprimir',compact('cart','total','users'));
+                
+        $viewDatos = \View::make('reportes.imprimir',compact('cart','total','users'));
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($viewDatos);
+        return $pdf->stream();
     }
     public function guardar(Request $request){
         dd($request);
