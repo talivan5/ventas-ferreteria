@@ -27,10 +27,10 @@
 						<th width="180">Opciones</th>
 					</thead>
 					<tbody>
-						<?php $index=1;?>
+						
 						@foreach($articulos as $art)
 							<tr>
-								<td>{{ $index }}</td>
+								<td>{{ $loop->iteration }}</td>
 								<td>{{ $art->nombre }}</td>
 								<td>{{ $art->slug }}</td>
 								<td>{{ $art->codigo }}</td>
@@ -41,7 +41,7 @@
 								</td>
 								<td>{{ $art->estado }}</td>
 								<td>
-									<a href="{{route('articulo.edit', $art->id)}}">
+									<a href="{{route('articulo.edit', $art->id )}}">
 										<i class="fa fa-pencil"></i>
 									</a>
 									<a href="" data-target="#modal-delete-{{$art->id}}" data-toggle="modal">
@@ -50,7 +50,7 @@
 								</td>
 							</tr>
 						@include('almacen.articulo.modal')
-						<?php $index++; ?>
+						
 						@endforeach
 					</tbody>
 				</table>

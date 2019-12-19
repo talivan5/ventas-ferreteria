@@ -58,6 +58,7 @@ class ArticuloController extends Controller
 
     public function edit($id)
     {
+        dd($id);
         $articulo = Articulo::findOrFail($id);
         //$categorias para el select form
         $categorias = DB::table('categoria')->where('condicion', '=', '1')->get();
@@ -68,7 +69,7 @@ class ArticuloController extends Controller
             ]);
     }
 
-    public function update(ArticuloFormRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $articulo = Articulo::findOrFail($id);
         $articulo->id_categoria = $request->get('id_categoria');
@@ -86,13 +87,14 @@ class ArticuloController extends Controller
             $articulo->imagen = $file->getClientOriginalName();
         }
 
-        $articulo->update();
+        $articulo->save();
         return redirect('almacen/articulo');
 
     }
 
     public function destroy($id)
     {
+        dd($id);
         $articulo = Articulo::findOrFail($id);
         $articulo->delete();
         return redirect('almacen/articulo');
