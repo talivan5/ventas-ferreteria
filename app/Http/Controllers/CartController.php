@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
-use App\Http\Requests\ArticuloFormRequest;
 use App\Articulo;
 use App\VentaArticulo;
+use Carbon\Carbon;
+
 use Illuminate\Support\Facades\Auth;
 use DB;
-use SebastianBergmann\Environment\Console;
+use Milon\Barcode\QRcode;
+
 
 class CartController extends Controller
 {
@@ -81,12 +82,22 @@ class CartController extends Controller
     public function imprimirDedalle()
     {
         $users= Auth::user();
-              
+        $time = new Carbon('now');   
+      
         if(count(\Session::get('cart'))<=0) return redirect()->route('home');
         $cart = \Session::get('cart');
         $total=$this->total();
                 
-        $viewDatos = \View::make('reportes.imprimir',compact('cart','total','users'));
+        $viewDatos = \View::make('reportes.imprimir',compact('cart','total','users','time'));
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($viewDatos);
+        return $pdf->stream();
+    }
+    public function clienteVenta()
+    {
+    
+                
+        $viewDatos = \View::make('reportes.imprimir',compact('cart','total','users','time'));
         $pdf = \App::make('dompdf.wrapper');
         $pdf->loadHTML($viewDatos);
         return $pdf->stream();

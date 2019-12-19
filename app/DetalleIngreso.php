@@ -11,12 +11,11 @@ class DetalleIngreso extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-
-    	'id_ingreso',
-    	'id_articulo',
+        'id_articulo',
+        'id_users',
     	'cantidad',
-    	'precio_comrpa',
-    	'precio_venta'
+    	'subtotal',
+    	'total'
 
     ];
 }

@@ -4,39 +4,68 @@
     <meta charset="UTF-8">
     
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+   <style>
+      table {
+      width: 100%;      
+    }
+    th, td {
+      width: 25%;
+      border: 2px blue;
+      border: red 2px solid;
+    }
+    h1,h3{
+      text-align: center;
+      background-color: aqua;
+    }
+    .qr{
+      align-content: flex-end;
+      
+      border: 2px red solid;
+      float: center;
+    }
+ </style>
     <title>Comprobante</title>
 </head>
-<body>       
-    <br><br>
+<body>      
+  <div>
+    {!!DNS2D::getBarcodeHTML(335553, 'QRCODE')!!}</div>
+  </div> 
+    <br>
 <div class="container text-center">
 
 <div class="page-header">
     <h1>Detalle de la Compra</h1>
+    
 </div>
 
 <table class="table">
     <thead class="thead-light">
-        <tr>
-        <th scope="col" colspan="2"><h3>Datos del Cliente</h3></th>     
+        <tr style="background-color: aqua;">
+        <th scope="col" colspan="4"><h3>Datos del Cliente</h3></th>     
         </tr>
     </thead>
     <tbody>
         <tr>
-        <td> Nombre:</td>
-        <td style="text-align: left">{{ Auth::user()->name }}</td>
+          <td> Nombre:</td>
+          <td style="text-align: left" colspan="3">{{ Auth::user()->name }}</td>
         </tr>
         <tr>
-        <td scope="row">Email:</td>
-        <td style="text-align: left">{{ Auth::user()->email }}</td>
-        </tr>          
+          <td scope="row">Email:</td>
+          <td style="text-align: left" colspan="3">{{ Auth::user()->email }}</td>
+        </tr>      
+        <tr>
+          <td scope="row">Fecha:</td>
+          <td style="text-align: left">{{ $time->format('Y-m-d') }}</td>
+          <td scope="row">Hora:</td>
+          <td style="text-align: left">{{ $time->format('H-i') }}</td>
+        </tr>             
     </tbody>
 </table>
 <br>
 <hr>
 <table class="table">
     <thead class="thead-dark">
-      <tr class="thead-light">
+      <tr style="background-color: aqua;">
          <th scope="col" colspan="5"><h3>Datos de los Productos</h3></th>     
       </tr>     
       <tr>

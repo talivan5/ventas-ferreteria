@@ -41,7 +41,7 @@
 								</td>
 								<td>{{ $art->estado }}</td>
 								<td>
-									<a href="{{ route('articulo.edit', $art->id) }}">
+									<a href="{{route('articulo.edit', $art->id)}}">
 										<i class="fa fa-pencil"></i>
 									</a>
 									<a href="" data-target="#modal-delete-{{$art->id}}" data-toggle="modal">

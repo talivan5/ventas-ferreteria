@@ -13,9 +13,6 @@
 			</div>
 			@endif
 		
-		
-
-
 			<form action="{{ route('articulo.update', $articulo->id) }}" method="POST" enctype="multipart/form-data">
 				<!-- <input name="_method" type="hidden" value="PUT"> -->
 				{{ method_field('PUT') }}

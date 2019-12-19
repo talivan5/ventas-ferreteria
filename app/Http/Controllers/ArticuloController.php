@@ -20,7 +20,7 @@ class ArticuloController extends Controller
     public function create(Request $request)
     {
         //Para el select form
-        $request->user()->authorizeRoles(['user']);
+        
         $categorias = DB::table('categoria')->where('condicion', '=', '1')->get();
 
         return view('almacen.articulo.create',['categorias' => $categorias]);
@@ -37,6 +37,7 @@ class ArticuloController extends Controller
         $articulo->stock = $request->get('stock');
         $articulo->descripcion = $request->get('descripcion');
         $articulo->estado = 'Activo';
+        $articulo->condicion = '1';
 
         if (Input::hasFile('imagen')) //Si tiene imagen el campo imagen
         {
@@ -93,8 +94,7 @@ class ArticuloController extends Controller
     public function destroy($id)
     {
         $articulo = Articulo::findOrFail($id);
-        $articulo->estado = 'Inactivo';
-        $articulo->update();
+        $articulo->delete();
         return redirect('almacen/articulo');
     }
 

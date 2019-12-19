@@ -17,7 +17,9 @@ class Articulo extends Model
     	'stock',
     	'descripcion',
     	'imagen',
-    	'estado'
+		'estado',
+		'condicion'
+		
     ];
 
     public function categoria()

@@ -99,9 +99,9 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('ingreso.index') }}" class="nav-link">
+                <a href="" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    Ingresos
+                    Clientes
                 </a>
             </li>
           </ul>
@@ -132,6 +132,12 @@
               <a href="{{ route('reporte-articulo') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   Por Articulo
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ route('reporte-compra') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  Compra articulos
               </a>
             </li>
           </ul>

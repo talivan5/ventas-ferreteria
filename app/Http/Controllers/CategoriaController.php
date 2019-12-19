@@ -34,15 +34,8 @@ class CategoriaController extends Controller
     {
     	if ($request)
     	{
-            //trim() Elimina espacios en blanco al principio y al final
+           
     		$query = trim($request->input('searchText'));
-
-            // $categorias = Categoria::where([
-            //         ['nombre', 'LIKE', "%$query%"],
-            //         ['condicion', '=', '1'],
-            //     ])
-            //     ->orderBy('id', 'DESC')
-            //     ->get();
 
     		$categorias = Categoria::where('nombre', 'LIKE', "%$query%")
     			->where('condicion','=','1')

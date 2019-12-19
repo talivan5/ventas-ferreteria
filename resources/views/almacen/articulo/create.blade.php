@@ -22,7 +22,7 @@
 						<input type="text" name="nombre" class="form-control" placeholder="Nombre" value="{{ old('nombre') }}">
 					</div>
 					<div class="form-group">
-						<label for="slug">Slug</label>
+						<label for="slug">Cantidad</label>
 						<input type="text" name="slug" class="form-control" placeholder="slug" value="{{ old('slug') }}">
 					</div>
 					<div class="form-group">

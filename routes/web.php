@@ -22,7 +22,7 @@ Route::get('/',[
 Route::get('inicio',[
     'as'=>'inicio',
     'uses'=>'StoreController@inicio']);
-
+    
 Route::get('inicioAdmin',[
     'as'=>'inicioAdmin',
     'uses'=>'StoreController@inicioAdmin']);
@@ -38,8 +38,6 @@ Route::resource('/almacen/articulo', 'ArticuloController');
 Route::resource('/ventas/cliente', 'ClienteController');
 
 Route::resource('/compras/proveedor', 'ProveedorController');
-
-Route::resource('/compras/ingreso', 'IngresoController');
 
 Route::get('articulo/{slug}',[
     'as'=>'articulo-detalle',
@@ -97,6 +95,10 @@ Route::get('pdfuser',[
 Route::get('pdfventas',[
     'as'=>'reporte-ventas',
     'uses'=>'ReporteController@reporteventas']);
+
+Route::get('pdfcompra',[
+    'as'=>'reporte-compra',
+    'uses'=>'ReporteController@reportecompra']);
 
 
 //Route::get('/home', 'HomeController@index')->name('home');

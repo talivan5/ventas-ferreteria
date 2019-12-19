@@ -13,7 +13,7 @@ class DetalleCompraController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
