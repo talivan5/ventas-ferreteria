@@ -22,7 +22,7 @@ class CartController extends Controller
     {
         $cart = \Session::get('cart');
         $total= $this->total();
-        return view('almacen.articulo.cart',compact('cart','total'));
+        return view('compras.registro.reproducto',compact('cart','total'));
     }
 
     public function add(Articulo $art)
@@ -33,25 +33,23 @@ class CartController extends Controller
 
         \Session::put('cart', $cart);
 
-        return redirect()->route('cart-show');
+        return redirect()->route('guarda');
     }
     public function delete(Articulo $art)
     {
         $cart=\Session::get('cart');
         unset($cart[$art->slug]);
         \Session::put('cart', $cart);
-        return redirect()->route('cart-show');
+        return redirect()->route('guarda');
 
     }
     public function update(Articulo $art, $cantidad)
     {
         $cart = \Session::get('cart');
-
-        $cart[$art->slug]->cantidad = $cantidad;
-        
+        $cart[$art->slug]->cantidad = $cantidad;        
         \Session::put('cart', $cart);
         
-        return redirect()->route('cart-show');
+        return redirect()->route('guarda');
 
     }
 
@@ -59,7 +57,7 @@ class CartController extends Controller
     {
         \Session::forget('cart');
         
-        return redirect()->route('cart-show');
+        return redirect()->route('guarda');
 
     }
     private function total()
@@ -103,7 +101,7 @@ class CartController extends Controller
         return $pdf->stream();
     }
     public function guardar(Request $request){
-        dd($request);
+
         $venta = new VentaArticulo;
         $venta->id_articulo = $request->id_articulo;
         $venta->cantidad = $request->cantidad;

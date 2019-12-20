@@ -15,23 +15,16 @@ class CreateVentaTable extends Migration
     {
         Schema::create('venta', function (Blueprint $table) {
             $table->increments('id');
+             //datos del cliente
+             $table->string('nombreCliente');
+             //datos del producto
+             $table->string('nombreProducto');
+             $table->integer('precio');
+             $table->integer('cantidad');
+             $table->decimal('subtotal', 11,2);
+             $table->decimal('total', 11,2);
 
-            $table->integer('id_cliente')->unsigned();
-            // $table->integer('id_usuario')->unsigned();
-
-            $table->string('tipo_comprobante', 50);
-            $table->string('serie_comprobante', 50)->nullable();
-            $table->string('num_comprobante', 50);
-            $table->decimal('impuesto', 4,2);
-            $table->decimal('total_venta', 11,2);
-            $table->string('estado', 50);
-
-            $table->timestamps();
-
-            //Relations
-            $table->foreign('id_cliente')->references('id')->on('persona')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+             $table->timestamps();
         });
     }
 

@@ -23,11 +23,10 @@
 						<th>Descripción</th>
 						<th width="180">Opciones</th>
 					</thead>
-					<tbody>
-						<?php $index=1;?>
+					<tbody>						
 						@foreach($categorias as $cat)
 						<tr>
-							<td>{{ $index }}</td>
+							<td>{{$loop->iteration}}</td>
 							<td>{{ $cat->nombre }}</td>
 							<td>{{ $cat->slug }}</td>
 							<td>{{ $cat->descripcion }}</td>
@@ -40,9 +39,8 @@
 								</a>
 							</td>
 						</tr>
-
 						@include('almacen.categoria.modal')
-						<?php $index++; ?>
+						
 						@endforeach
 					</tbody>
 				</table>

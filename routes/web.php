@@ -30,10 +30,25 @@ Route::get('inicioAdmin',[
 Route::get('cliente/categoria',[
     'as'=>'cliente/categoria',
     'uses'=>'CategoriaController@indexcliente']);
-    
+//registro del producto
+Route::post('/compras/registro/', 'DetalleCompraController@store')->name('recliente.store');
+Route::get('/compras/registro/', 'DetalleCompraController@create')->name('guarda');
+//registro del cliente
+Route::post('/compras/registro/cliente', 'DetalleCompraController@storecli')->name('rcliente.store');
+Route::get('/compras/registro/cliente', 'DetalleCompraController@createcli')->name('guardacliente');
+
+
+//registro de categorias
 Route::resource('/almacen/categoria', 'CategoriaController');
 
-Route::resource('/almacen/articulo', 'ArticuloController');
+//Route::resource('/almacen/articulo', 'ArticuloController');
+Route::get('/almacen/articulo/', 'ArticuloController@index');
+Route::post('/almacen/articulo/', 'ArticuloController@store')->name('articulo.store');
+Route::get('/almacen/articulo/create', 'ArticuloController@create')->name('articulo.create');
+Route::get('/almacen/articulo/{id}', 'ArticuloController@show');
+Route::delete('/almacen/articulo/{id}', 'ArticuloController@destroy')->name('articulo.destroy');
+Route::put('/almacen/articulo/{id}', 'ArticuloController@update')->name('articulo.update');
+Route::get('/almacen/articulo/{id}/edit', 'ArticuloController@edit')->name('articulo.edit');
 
 Route::resource('/ventas/cliente', 'ClienteController');
 
@@ -44,12 +59,9 @@ Route::get('articulo/{slug}',[
     'uses'=>'StoreController@show'
 ]);
 
-Route::get('show',[
-    'as'=>'cart-show',
-    'uses'=>'CartController@show'
-]);
+Route::get('show','CartController@show')->name('cart-show');
 
-Route::post('guardar/{item}','CartController@guardar');
+//Route::post('guardar/{item}','CartController@guardar');
 
 
 Route::get('cart/add/{articulo}',[

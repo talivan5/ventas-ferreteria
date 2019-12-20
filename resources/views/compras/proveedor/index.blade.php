@@ -25,11 +25,10 @@
 						<th>Email</th>
 						<th width="180">Opciones</th>
 					</thead>
-					<tbody>
-						<?php $index=1;?>
+					<tbody>						
 						@foreach($personas as $per)
 							<tr>
-								<td>{{ $index }}</td>
+								<td>{{$loop->iteration}}</td>
 								<td>{{ $per->nombre }}</td>
 								<td>{{ $per->tipo_documento }}</td>
 								<td>{{ $per->num_documento }}</td>
@@ -44,8 +43,7 @@
 									</a>
 								</td>
 							</tr>
-						@include('compras.proveedor.modal')
-						<?php $index++; ?>
+						@include('compras.proveedor.modal')						
 						@endforeach
 					</tbody>
 				</table>

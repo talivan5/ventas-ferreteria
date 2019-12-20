@@ -10,7 +10,9 @@ $factory->define(DetalleIngreso::class, function (Faker $faker) {
         'id_articulo' => function(){
             return App\Articulo::all()->random();
         },
-        'id_users' => '1',
+        'id_users' => function(){
+            return App\User::all()->random();
+        },
         'cantidad' => rand(5,250),
         'subtotal' => rand(5,250),
         'total' => rand(5,250),        

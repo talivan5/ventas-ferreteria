@@ -23,10 +23,10 @@ class ArticuloController extends Controller
         
         $categorias = DB::table('categoria')->where('condicion', '=', '1')->get();
 
-        return view('almacen.articulo.create',['categorias' => $categorias]);
+        return view('almacen.articulo.create',compact('categorias'));
     }
 
-    public function store(ArticuloFormRequest $request)
+    public function store(Request $request)
     {
         //Nuevo objeto
         $articulo = new Articulo;
@@ -52,21 +52,17 @@ class ArticuloController extends Controller
 
     public function show($id)
     {
-        return view('almacen.articulo.show', 
-            ['articulo'=>Articulo::findOrFail($id)]);
+        $articulo = Articulo::findOrFail($id);
+        return view('almacen.articulo.show',compact('articulo'));
     }
 
     public function edit($id)
     {
-        dd($id);
         $articulo = Articulo::findOrFail($id);
         //$categorias para el select form
         $categorias = DB::table('categoria')->where('condicion', '=', '1')->get();
 
-        return view('almacen.articulo.edit',[
-            'articulo' => $articulo,
-            'categorias' => $categorias
-            ]);
+        return view('almacen.articulo.edit',compact('articulo','categorias'));
     }
 
     public function update(Request $request, $id)
@@ -94,7 +90,6 @@ class ArticuloController extends Controller
 
     public function destroy($id)
     {
-        dd($id);
         $articulo = Articulo::findOrFail($id);
         $articulo->delete();
         return redirect('almacen/articulo');

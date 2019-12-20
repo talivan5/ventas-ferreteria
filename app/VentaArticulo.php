@@ -6,11 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class VentaArticulo extends Model
 {
-    protected $table = 'detalle_venta';
+    protected $table = 'venta';
     protected $fillable = [ 
 
-    	'id_articulo',
-    	'cantidad',
+		//datos del cliente
+		'nombreCliente',
+		//datos del producto
+		'nombreProducto',
+		'precio',
+		'cantidad',
 		'subtotal',
 		'total'
     ];

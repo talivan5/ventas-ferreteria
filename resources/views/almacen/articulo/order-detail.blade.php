@@ -29,15 +29,9 @@
     </h3><hr>
     <p>
         <a href="{{route('cart-show')}}" class="btn btn-warning">
-            <i class="fa fa-chevron-circle-left fa-2x"></i>Regresar
+            <i class="fa fa-chevron-circle-left fa-2x">Regresar</i>
         </a>
-        <a href="https://www.paypal.com/ar/signin" class="btn btn-primary">
-            Pagar con <i class="fa fa-cc-paypal fa-2x"></i>
-        </a>
-        <a href="{{route('imprimir')}}" class="btn btn-info">
-            <i class="fa fa-print fa-2x" aria-hidden="true"></i>
-            Descargar comprobante
-        </a>       
+        <a class="btn btn-primary" href="{{ route('cart-add',$art->slug) }}">comprar</a>           
     </p>
 
 </div>

@@ -1,84 +1,68 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use App\Articulo;
+use App\VentaArticulo;
+use App\Cliente;
+
 
 class DetalleCompraController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        
+    public function __construct(){
+        if(!\Session::has('cart'))\Session::put('cart',array());
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
+    private function total()
+    {
+        $cart = \Session::get('cart');
+        $total=0;
+        foreach($cart as $item){
+            $total+=$item->stock * $item->cantidad;
+        }
+        return $total;
+    }
+    public function createcli()
+    {   
+        return view('compras.registro.recliente');
+    }
     public function create()
-    {
-        //
+    {   
+        $cart = \Session::get('cart');
+        $total=$this->total();
+        return view('compras.registro.reproducto',compact('cart','total'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $venta = new VentaArticulo;
+        
+        $venta->nombreCliente = $request->nombreCliente;        
+        $venta->nombreProducto = $request->nombreProducto;
+        $venta->precio = $request->precio;
+        $venta->cantidad = $request->cantidad;
+        $venta->subtotal = $request->subtotal;
+        $venta->total = $request->total;
+        $venta->save();
+        
+       return redirect()->route('guarda');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function storecli(Request $request)
     {
-        //
+        
+        $cliente = new Cliente;       
+        $cliente->nombre = $request->nombre;
+        $cliente->apellidoM = $request->apellidoM;
+        $cliente->apellidoP = $request->apellidoP;
+        $cliente->direccion = $request->direccion;
+        $cliente->celular = $request->celular;
+        $cliente->email = $request->email;
+    	$cliente->save();       
+        
+        
+       return redirect()->route('guarda');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+   
 }

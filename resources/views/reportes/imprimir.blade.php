@@ -18,17 +18,16 @@
       background-color: aqua;
     }
     .qr{
-      align-content: flex-end;
-      
-      border: 2px red solid;
-      float: center;
+        float: right;
+        width: 15%; 
+        padding: 10px;
     }
  </style>
     <title>Comprobante</title>
 </head>
 <body>      
-  <div>
-    {!!DNS2D::getBarcodeHTML(335553, 'QRCODE')!!}</div>
+  <div class="qr">
+    {!!DNS2D::getBarcodeHTML("ferreteria flowers", "QRCODE",2,2)!!}
   </div> 
     <br>
 <div class="container text-center">
@@ -75,24 +74,24 @@
         <th scope="col">Cantidad</th>
         <th scope="col">Subtotal</th>
       </tr>
-    </thead>
-    <?php $index=1; ?>
-    @foreach ($cart as $item) 
+    </thead>  
+    
     <tbody>
+      @foreach ($cart as $item) 
       <tr>
-        <th scope="row">{{$index}}</th>
+        <th>{{$loop->iteration}}</th>
         <td>{{$item->nombre}}</td>
         <td>{{$item->stock}}</td>
         <td>{{$item->cantidad}}</td>
         <td>{{$item->stock*$item->cantidad}}</td>
-      </tr>    
+      </tr>  
+      @endforeach   
       <tr class="table-danger">
           <td colspan="4">Total a pagar:</td>
           <td>{{$total}}Bs.</td>
       </tr>
-    </tbody>
-    <?php $index++;?>
-    @endforeach 
+    </tbody>   
+   
   </table>                         
           
             {{-- <a href="{{route('guardar',$item)}}" class="btn btn-info">

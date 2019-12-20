@@ -54,7 +54,7 @@ class CategoriaController extends Controller
     	return view('almacen.categoria.create');
     }
 
-    public function store(CategoriaFormRequest $request)
+    public function store(Request $request)
     {
     	$categoria = new Categoria;
         $categoria->nombre = $request->nombre;
@@ -78,7 +78,7 @@ class CategoriaController extends Controller
     	return view('almacen.categoria.edit', ['categoria'=>$categoria]);
     }
 
-    public function update(CategoriaFormRequest $request, $id)
+    public function update(Request $request, $id)
     {
     	$categoria = Categoria::findOrFail($id);
         $categoria->nombre = $request->nombre;
