@@ -23,7 +23,6 @@
   <!-- summernote -->
   <link rel="stylesheet" href="{{asset('asset/plugins/summernote/summernote-bs4.css')}}">
   
-  
     
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
@@ -31,7 +30,7 @@
   
   <!-- Theme style -->
   
-  
+ 
   
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">

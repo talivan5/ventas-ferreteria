@@ -8,7 +8,7 @@
     <div class="card-body">
       <h5 class="card-title">Producto:</h5><h6>{{$articulos->nombre}}</h6><hr>
       <h5 class="card-text">Precio: {{$articulos->stock}} bs.</h5>
-      <p class="card-text">Descripción: {{$articulos->descripcion}}</p>
+      <textarea class="card-text">Descripción: {{$articulos->descripcion}}</textarea>
       <a href="{{ route('cart-add',$articulos->slug) }}" class="btn btn-primary">Comprar</a>
       <a href="{{ route('inicio') }}" class="btn btn-success">Volver</a>
     </div>              
