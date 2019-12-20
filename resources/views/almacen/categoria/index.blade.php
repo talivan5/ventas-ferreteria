@@ -17,9 +17,8 @@
 			<div class="table-responsive">
 				<table class="table table-striped table-hover">
 					<thead>
-						<th>Id</th>
-						<th>Nombre</th>
-						<th>Slug</th>
+						<th>N°</th>
+						<th>Nombre</th>						
 						<th>Descripción</th>
 						<th width="180">Opciones</th>
 					</thead>
@@ -27,8 +26,7 @@
 						@foreach($categorias as $cat)
 						<tr>
 							<td>{{$loop->iteration}}</td>
-							<td>{{ $cat->nombre }}</td>
-							<td>{{ $cat->slug }}</td>
+							<td>{{ $cat->nombre }}</td>							
 							<td>{{ $cat->descripcion }}</td>
 							<td>
 								<a href="{{ route('categoria.edit', $cat->id) }}">
@@ -45,7 +43,9 @@
 					</tbody>
 				</table>
 			</div>
-			{{ $categorias->render() }}
+			<div class="pagination justify-content-center">
+				{{ $categorias->render() }}
+			</div>
 		</div>
 	</div>
 

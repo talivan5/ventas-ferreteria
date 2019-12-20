@@ -21,20 +21,11 @@
 				<div class="form-group">
 					<label for="nombre">Nombre</label>
 					<input type="text" name="nombre" class="form-control" 
-						value="{{ $categoria->nombre }}" 
-						placeholder="{{ $categoria->nombre }}">
-				</div>
-				<div class="form-group">
-					<label for="slug">Slug</label>
-					<input type="text" name="slug" class="form-control" 
-						value="{{ $categoria->slug }}" 
-						placeholder="{{ $categoria->slug }}">
-				</div>
+						value="{{ $categoria->nombre }}">
+				</div>				
 				<div class="form-group">
 					<label for="descripcion">Descripción</label>
-					<input type="text" name="descripcion" class="form-control"
-						value="{{ $categoria->descripcion }}"
-						placeholder="{{ $categoria->descripcion }}">
+					<textarea type="text" name="descripcion" class="form-control">{{ $categoria->descripcion }}</textarea>
 				</div>
 				<div class="form-group">
 					<button class="btn btn-primary" type="submit">

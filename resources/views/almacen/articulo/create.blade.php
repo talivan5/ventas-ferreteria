@@ -15,7 +15,7 @@
 			
 			<form action="/almacen/articulo" method="POST" enctype="multipart/form-data">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
-				
+				<div class="row">
 				<div class="col-md-6">
 					<div class="form-group">
 						<label for="nombre">Nombre</label>
@@ -61,11 +61,12 @@
 						<button class="btn btn-primary" type="submit">
 							Guardar
 						</button>
-						<button class="btn btn-danger" type="reset">
+						<a class="btn btn-danger" href="{{ url('almacen/articulo') }}">
 							Cancelar
-						</button>
+						</a>
 					</div>
 				</div>
+			</div>
 			</form>
 
 		</div>

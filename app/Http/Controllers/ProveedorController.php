@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\PersonaFormRequest;
-use App\Persona;
+use App\Proveedor;
 use DB;
 
 class ProveedorController extends Controller
@@ -16,7 +16,7 @@ class ProveedorController extends Controller
             //trim() Elimina espacios en blanco al principio y al final
     		$query = trim($request->input('searchText'));
 
-    		$personas = Persona::where('nombre', 'LIKE', "%$query%")
+    		$personas = Proveedor::where('nombre', 'LIKE', "%$query%")
     			->where('tipo_persona','=','Proveedor')
     			->orwhere('num_documento','LIKE', "%$query%")
     			->where('tipo_persona','=','Proveedor')
@@ -37,7 +37,7 @@ class ProveedorController extends Controller
 
     public function store(PersonaFormRequest $request)
     {
-    	$persona = new Persona;
+    	$persona = new Proveedor;
     	$persona->tipo_persona = 'Proveedor';
     	$persona->nombre = $request->get('nombre');
 		$persona->tipo_documento = $request->get('tipo_documento');
@@ -52,19 +52,19 @@ class ProveedorController extends Controller
 
     public function show($id)
     {
-    	$persona = Persona::findOrFail($id);
+    	$persona = Proveedor::findOrFail($id);
     	return view('compras.proveedor.show', ['persona'=>$persona]);
     }
 
     public function edit($id)
     {
-    	$persona = Persona::findOrFail($id);
+    	$persona = Proveedor::findOrFail($id);
     	return view('compras.proveedor.edit', ['persona'=>$persona]);
     }
 
     public function update(PersonaFormRequest $request, $id)
     {
-    	$persona = Persona::findOrFail($id);
+    	$persona = Proveedor::findOrFail($id);
 
     	$persona->tipo_persona = 'Proveedor';
     	$persona->nombre = $request->get('nombre');
@@ -81,7 +81,7 @@ class ProveedorController extends Controller
 
     public function destroy($id)
     {
-    	$persona = Persona::findOrFail($id);
+    	$persona = Proveedor::findOrFail($id);
     	$persona->tipo_persona = 'Inactivo';
     	$persona->update();
 

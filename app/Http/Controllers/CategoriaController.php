@@ -58,7 +58,6 @@ class CategoriaController extends Controller
     {
     	$categoria = new Categoria;
         $categoria->nombre = $request->nombre;
-        $categoria->slug = $request->slug;
     	$categoria->descripcion = $request->descripcion;
     	$categoria->condicion = '1';
     	$categoria->save();
@@ -82,7 +81,6 @@ class CategoriaController extends Controller
     {
     	$categoria = Categoria::findOrFail($id);
         $categoria->nombre = $request->nombre;
-        $categoria->slug = $request->slug;
     	$categoria->descripcion = $request->descripcion;
     	$categoria->update();
 

@@ -14,7 +14,7 @@
 							<div class="form-group row">
 								<label for="staticEmail" class="col-sm-2 col-form-label">Poducto</label>
 								<div class="col-sm-10">
-									<img src="{{$art->imagen}}" alt="{{$art->nombre}}" height="500" width="500" class="img-thumbnail">
+									<img src="{{ asset('imagenes/articulos/'.$art->imagen) }}" alt="{{$art->nombre}}" height="500" width="500" class="img-thumbnail">
 								</div>
 							</div>	
 						</div>

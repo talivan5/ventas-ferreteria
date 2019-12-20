@@ -19,7 +19,7 @@
 					<thead>
 						<th>Id</th>
 						<th>Nombre</th>
-						<th>Slug</th>
+						<th>Cantidad</th>
 						<th>Código</th>
 						<th>Precio</th>						
 						<th>Imágen</th>
