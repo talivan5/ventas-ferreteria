@@ -29,8 +29,5 @@
 <div class="pagination justify-content-center">
 	{{ $articulos->links() }}
 </div>
-<script>
-var texto= "$art->descripcion";
-var nuevo=texto.substr(15);
-</script>
+
 @endsection

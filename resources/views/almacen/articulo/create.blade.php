@@ -47,7 +47,7 @@
 
 					<div class="form-group">
 						<label for="descripcion">Descripción</label>
-						<input type="text" name="descripcion" class="form-control" placeholder="Descripción" value="{{ old('descripcion') }}">
+						<textarea name="descripcion" class="form-control" placeholder="Descripción" value="{{ old('descripcion') }}"></textarea>
 					</div>
 
 					<div class="form-group">
