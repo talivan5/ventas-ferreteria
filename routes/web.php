@@ -11,6 +11,8 @@
 |
 */
 
+
+
 Route::bind('articulo',function($slug){
     return App\Articulo::where('slug',$slug)->first();
 });
@@ -31,7 +33,7 @@ Route::get('cliente/categoria',[
     'as'=>'cliente/categoria',
     'uses'=>'CategoriaController@indexcliente']);
 //registro del producto
-Route::post('/compras/registro/', 'DetalleCompraController@store')->name('recliente.store');
+Route::post('/compras/registro/', 'DetalleCompraController@store')->name('reproducto.store');
 Route::get('/compras/registro/', 'DetalleCompraController@create')->name('guarda');
 //registro del cliente
 Route::post('/compras/registro/cliente', 'DetalleCompraController@storecli')->name('rcliente.store');
@@ -104,13 +106,11 @@ Route::get('pdfuser',[
     'as'=>'reporte-user',
     'uses'=>'ReporteController@reporteuser']);
 
-Route::get('pdfventas',[
-    'as'=>'reporte-ventas',
-    'uses'=>'ReporteController@reporteventas']);
+Route::get('pdfventas','ReporteController@reporteventas')->name('reporte-ventas');
 
 Route::get('pdfcompra',[
     'as'=>'reporte-compra',
     'uses'=>'ReporteController@reportecompra']);
 
-
+Route::get('pdfproducto','ReporteController@cantidadCompra')->name('cantidad'); 
 //Route::get('/home', 'HomeController@index')->name('home');

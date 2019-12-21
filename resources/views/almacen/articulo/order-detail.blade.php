@@ -31,7 +31,7 @@
         <a href="{{route('cart-show')}}" class="btn btn-warning">
             <i class="fa fa-chevron-circle-left fa-2x">Regresar</i>
         </a>
-        <a class="btn btn-primary" href="{{ route('cart-add',$art->slug) }}">comprar</a>           
+        <a class="btn btn-primary" href="{{ route('cart-add',$item->slug) }}">comprar</a>           
     </p>
 
 </div>

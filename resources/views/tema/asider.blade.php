@@ -140,6 +140,12 @@
                   Compra articulos
               </a>
             </li>
+            <li class="nav-item">
+              <a href="{{ route('cantidad') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  Cantidad Compra
+              </a>
+            </li>
           </ul>
         </li>
         

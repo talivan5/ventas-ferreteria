@@ -7,8 +7,8 @@
         <a href="{{ route('cart-trash') }}" class="btn btn-danger">
         Vaciar Carrito <i class="fa fa-trash"></i>
 		</a>
-		<a href="{{ route('guardacliente') }}" class="btn btn-danger">
-			datos <i class="fa fa-trash"></i>
+		<a href="{{ route('guardacliente') }}" class="btn btn-dark">
+			Registrar Tus Datos <i class="fa fa-trash"></i>
 			</a>	
 		<a href="{{route('imprimir')}}" class="btn btn-info">
 			<i class="fa fa-print" aria-hidden="true"></i>
@@ -16,7 +16,7 @@
 		</a>	 
     </p>
 <br>
-<form action="{{route('recliente.store')}}" method="POST">
+<form action="{{route('reproducto.store')}}" method="POST">
 	{{ csrf_field() }}
 <div class="row">
 	<div class="col-md-12" style="background-color: brown;">
@@ -37,7 +37,9 @@
 				@foreach ($cart as $item)
 				<tr>
 					<td><input type="text"  style="width: 200px;" name="nombreCliente" value="{{ Auth::user()->name }}" readonly="readonly"></td>
-					<td><input type="text"  style="width: 150px;" name="nombreProducto" value="{{$item->nombre}}" readonly="readonly"></td>
+					<td>
+						<textarea type="text"  style="width: 150px; height: 100px;" name="nombreProducto" readonly="readonly">{{$item->nombre}}</textarea>
+					</td>
 					<td><input type="text"  style="width: 80px;" name="precio" value="{{$item->stock}}" readonly="readonly"></td>
 					<td>
 						<input 
@@ -59,7 +61,7 @@
 						</a>
 					</td>
 					<td>
-						<textarea type="text"  name="descripcion" readonly="readonly">{{$item->descripcion}}</textarea>
+						<textarea style="height: 100px;"  name="descripcion" readonly="readonly">{{$item->descripcion}}</textarea>
 					</td>
 					<td>
 						<input type="text"  style="width: 80px;" name="subtotal" value="{{$item->stock*$item->cantidad}}" readonly="readonly">

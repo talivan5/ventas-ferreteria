@@ -11,30 +11,35 @@
             border-radius: 25px;
         }
     </style>
-<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+
 </head>
 <body>
-    <img class="imagen" src="./image/ferreteria-3.jpg" alt="">
 
-    <table class="table">
+    <table class="table" border="2px;">
         <thead>
+            <tr style="background-color: aqua;">
+                <th colspan="5" style="text-align: center;">
+                    <h1>Lista de los Usuario</h1>
+                </th>
+            </tr>
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
                 <th>Email</th>
-                <th>Activo</th>
+                <th>Rol</th>
+                <th>Descripción</th>
             </tr>
         </thead>
         <tbody >
-                <?php $index=1; ?>
             @foreach ($user as $usuario)
             <tr>
-                <td>{{$index}}</td>
+                <td>{{$loop->iteration}}</th>
                 <td>{{$usuario->name}}</td>
                 <td>{{$usuario->email}}</td>
-                <td>{{$usuario->active}}</td>               							
+                <td>{{$usuario->name}}</td>
+                <td>{{$usuario->description}}</td>
+                             							
             </tr>
-            <?php $index++;?>
             @endforeach						
         </tbody>
     </table>

@@ -14,10 +14,14 @@
 
 </head>
 <body>
-    
-    <h1 style="align-content: center ">Lista de Productos</h1>
-    <table>
+    <table border="2px;">
         <thead>
+            <tr>
+                <th colspan="4" style="text-align: center;">
+                    <h1>Lista de Productos</h1>
+                </th>
+                
+            </tr>
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
@@ -26,7 +30,6 @@
             </tr>
         </thead>
         <tbody>
-            
             @foreach ($articulo as $articulos)
             <tr>
                 <td>{{$loop->iteration}}</td>
@@ -34,7 +37,6 @@
                 <td>{{$articulos->stock}}</td>  
                 <td>{{$articulos->descripcion }}</td>                         							
             </tr>
-            
             @endforeach						
         </tbody>
     </table>

@@ -17,29 +17,34 @@
       text-align: center;
       background-color: aqua;
     }
+    .qr{
+        float: right;
+        width: 15%; 
+        padding: 10px;
+    }
  </style>
     <title>Comprobante</title>
 </head>
 <body>      
-  
+ 
 <div class="container text-center">
 
 <table class="table">
     <thead class="thead-dark">
       <tr style="background-color: aqua;">
-         <th scope="col" colspan="6"><h3>Datos de los Productos</h3></th>     
+         <th scope="col" colspan="6"><h3>Listas de Compras</h3></th>     
       </tr>     
       <tr>
         <th scope="col">N°</th>
-        <th scope="col">Cliente</th>
-        <th scope="col">Articulo</th>
+        <th scope="col">Nombre del Cliente</th>
+        <th scope="col">Producto</th>
         <th scope="col">Precio</th>
         <th scope="col">Cantidad</th>
         <th scope="col">Subtotal</th>
       </tr>
-    </thead>
+    </thead>      
     <tbody>
-      @foreach ($detalleingreso as $item) 
+      @foreach ($compracliente as $item) 
       <tr>
         <th>{{$loop->iteration}}</th>
         <td>{{$item->nombreCliente}}</td>
@@ -48,9 +53,9 @@
         <td>{{$item->cantidad}}</td>
         <td>{{$item->subtotal}}</td>
       </tr>  
-      @endforeach  
-    </tbody>
-  </table>                         
+      @endforeach   
+    </tbody>      
+  </table>                
 </div>
 </body>
 </html>

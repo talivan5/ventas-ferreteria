@@ -17,7 +17,7 @@
 				<!-- <input name="_method" type="hidden" value="PUT"> -->
 				{{ method_field('PUT') }}
 				{{ csrf_field() }}
-
+				<div class="row">
 				<div class="col-md-6">
 					<div class="form-group">
 						<label for="nombre">Nombre</label>
@@ -78,7 +78,7 @@
 						Cancelar
 					</button>
 				</div>
-
+			</div>
 			</form>
 
 		</div>

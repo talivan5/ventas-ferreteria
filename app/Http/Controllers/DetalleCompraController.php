@@ -59,10 +59,10 @@ class DetalleCompraController extends Controller
         $cliente->celular = $request->celular;
         $cliente->email = $request->email;
     	$cliente->save();       
-        
-        
+                
        return redirect()->route('guarda');
     }
 
+    
    
 }
