@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Articulo;
+use App\Categoria;
 
 class StoreController extends Controller
 {
      
-    public function index()
-    {   
+    public function index(Request $request)
+    {   $categorias=Categoria::orderBy('id','ASC')->get();
         $articulos=Articulo::orderBy('id','ASC')->paginate(6);
-        return view('almacen.articulo.lista',compact('articulos'));
+        return view('almacen.articulo.lista',compact('articulos','categorias'));
     }
     public function inicio(Request $request){
         if ($request)

@@ -2,27 +2,37 @@
 @section('contenido')
 
 <hr>
-
 <div class="row">
-	@foreach($articulos as $art)
-	<div class="col-sm-4">	
-		<div class="card alert alert-primary" style="width: 18rem;">
-			<div class="card-body">			
-				<img class="card-img-top" src="{{ asset('imagenes/articulos/'.$art->imagen) }}" alt="" style="size: 10cm">
-				<h5 class="card-title">Nombre: {{$art->nombre}}</h5><hr>
-				<h6 class="card-text">Precio: {{$art->stock}} bs.</h6>
-				<p class="card-text">Descripción: {{$art->descripcion_corto}}</p>						
-				<button type="button" class="btn btn-success" data-toggle="modal" data-target="#ingresar">
-					Comprar
-				  </button>				
-				<a data-toggle="modal" data-target="#modal-detalle-{{$art->id}}" class="btn btn-info">Detalle</a>	
-			</div>
+	<div class="col col-md-4">
+		<h1>Categorias</h1>
+		@foreach($categorias as $art)
+		<div class="row col-md-12">	
+			<div class="list-group" style="width: 200px;">
+				<a href="{{ asset('/'.$art->id) }}" class="list-group-item list-group-item-action">{{$art->nombre}}</a>
+			</div>			
 		</div>
-		
-	</div>	
-	@include('almacen.articulo.modalDetalle')
-	@endforeach
-</div>
+		@endforeach
+	</div>
+	<div class="row col col-md-8">
+		@foreach($articulos as $art)
+		<div class="col-md-6">	
+			<div class="card alert alert-primary" style="width: 18rem;">
+				<div class="card-body">			
+					<img class="card-img-top" src="{{ asset('imagenes/articulos/'.$art->imagen) }}" alt="" style="size: 10cm">
+					<h5 class="card-title">Nombre: {{$art->nombre}}</h5>
+					<h6 class="card-text">Precio: {{$art->stock}} bs.</h6>					
+					<button type="button" class="btn btn-success" data-toggle="modal" data-target="#ingresar">
+						Comprar
+					  </button>				
+					<a data-toggle="modal" data-target="#modal-detalle-{{$art->id}}" class="btn btn-info">Detalle</a>	
+				</div>
+			</div>		
+		</div>	
+		@include('almacen.articulo.modalDetalle')		
+		@endforeach
+	</div>
+</div>	
+<br>
 <div class="pagination justify-content-center">
 	{{ $articulos->links() }}
 </div>

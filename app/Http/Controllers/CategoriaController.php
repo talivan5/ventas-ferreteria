@@ -26,16 +26,7 @@ class CategoriaController extends Controller
 
 		return view('cliente.categoria',compact('categorias'));
 	}
-	public function menus(Request $request)
-	{
-		$menus = DB::table('categoria')
-				->select('nombre')
-				->groupBy('nombre', 'ASC')
-				->get();
-
-		return redirect('tema.asider',compact('menus'));
-
-	}
+	
     public function index(Request $request)
     {
     	if ($request)
