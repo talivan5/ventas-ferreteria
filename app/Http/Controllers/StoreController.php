@@ -20,7 +20,7 @@ class StoreController extends Controller
             $articulos = Articulo::where('nombre', 'LIKE', "%$query%")
     			->where('condicion','=','1')
     			->orderBy('id', 'DESC')
-                ->paginate(4);
+                ->paginate(6);
             return view('inicio', [
                 'articulos'=>$articulos, 
                 'searchText'=>$query

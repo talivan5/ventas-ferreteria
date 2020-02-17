@@ -1,3 +1,4 @@
+SELECT articulo.nombre,articulo.imagen,articulo.slug as precio ,categoria.nombre as categorias, articulo.id_categoria FROM articulo INNER JOIN categoria ON articulo.id_categoria=categoria.id
 ## Sistema web de ventas y compras
 
 - CRUD Artículos

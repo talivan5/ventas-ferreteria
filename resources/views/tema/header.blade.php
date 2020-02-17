@@ -1,22 +1,20 @@
-<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<nav class="main-header navbar navbar-expand navbar-gray navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
             <a href="{{ route('inicioAdmin') }}" class="nav-link">Inicio</a>
-          </li>
-    <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link" data-toggle="modal" data-target="#contactoModal">Contactos</a>
-    </li>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link" data-toggle="modal" data-target="#contactoModal">Contactos</a>
+        </li>
     </ul> 
-    
-  
     <!-- Right navbar links -->
  
-<ul class="navbar-nav ml-auto">
-        <!-- Authentication Links -->
+    <ul class="navbar-nav ml-auto">
+            <!-- Authentication Links -->
         @guest
             <li class="nav-item">
                 <a class="nav-link" href="" data-toggle="modal" data-target="#exampleModal">
@@ -48,8 +46,8 @@
                 </div>
             </li>
         @endguest
-        </ul>
-  </nav>
+    </ul>
+</nav>
 <!-- Modal contacto -->
 <div class="modal fade" id="contactoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

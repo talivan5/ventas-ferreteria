@@ -92,9 +92,7 @@ class CartController extends Controller
         return $pdf->stream();
     }
     public function clienteVenta()
-    {
-    
-                
+    {       
         $viewDatos = \View::make('reportes.imprimir',compact('cart','total','users','time'));
         $pdf = \App::make('dompdf.wrapper');
         $pdf->loadHTML($viewDatos);

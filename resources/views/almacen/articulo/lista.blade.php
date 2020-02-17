@@ -11,7 +11,7 @@
 				<img class="card-img-top" src="{{ asset('imagenes/articulos/'.$art->imagen) }}" alt="" style="size: 10cm">
 				<h5 class="card-title">Nombre: {{$art->nombre}}</h5><hr>
 				<h6 class="card-text">Precio: {{$art->stock}} bs.</h6>
-				<p class="card-text">Descripción: {{$art->descripcion}}</p>						
+				<p class="card-text">Descripción: {{$art->descripcion_corto}}</p>						
 				<button type="button" class="btn btn-success" data-toggle="modal" data-target="#ingresar">
 					Comprar
 				  </button>				

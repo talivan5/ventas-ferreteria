@@ -16,7 +16,6 @@ class ClienteController extends Controller
     	{
             //trim() Elimina espacios en blanco al principio y al final
     		$query = trim($request->input('searchText'));
-
     		$personas = Persona::where('nombre', 'LIKE', "%$query%")
     			->where('tipo_persona','=','Cliente')
     			->orwhere('num_documento','LIKE', "%$query%")

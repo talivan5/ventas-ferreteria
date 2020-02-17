@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Categoria;
+use App\Articulo;
+
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\CategoriaFormRequest;
 
 class CategoriaController extends Controller
@@ -14,22 +17,25 @@ class CategoriaController extends Controller
     }
     public function indexcliente(Request $request)
     {
-    	if ($request)
-    	{
-           
-    		$query = trim($request->input('searchText'));
+		$categorias = DB::table('categoria')
+			->join('articulo','categoria.id','=','articulo.id_categoria')
+			->select('articulo.imagen','articulo.nombre','articulo.slug',
+						'articulo.stock','categoria.nombre as categoria')
+			->orderBy('categoria.nombre', 'ASC')					
+			->paginate(6);
 
-    		$categorias = Categoria::where('nombre', 'LIKE', "%$query%")
-    			->where('condicion','=','1')
-    			->orderBy('id', 'ASC')
-                ->paginate(8);
+		return view('cliente.categoria',compact('categorias'));
+	}
+	public function menus(Request $request)
+	{
+		$menus = DB::table('categoria')
+				->select('nombre')
+				->groupBy('nombre', 'ASC')
+				->get();
 
-    		return view('cliente/categoria', [
-				'categorias'=>$categorias, 
-				'searchText'=>$query
-			]);
-    	}
-    }
+		return redirect('tema.asider',compact('menus'));
+
+	}
     public function index(Request $request)
     {
     	if ($request)
@@ -94,5 +100,6 @@ class CategoriaController extends Controller
     	$categoria->update();
 
     	return redirect('almacen/categoria');
-    }
+	}
+
 }

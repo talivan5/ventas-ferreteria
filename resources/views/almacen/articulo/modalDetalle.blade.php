@@ -10,7 +10,7 @@
   .inner:hover img {
 	  transform: scale(1.5);
   }
-	</style>
+</style>
 <div class="modal fade" id="modal-detalle-{{$art->id}}" tabindex="-1" role="dialog" aria-labelledby="detalle" aria-hidden="true">
 	<div class="modal-dialog modal-xl" role="document">
 		<div class="modal-content">

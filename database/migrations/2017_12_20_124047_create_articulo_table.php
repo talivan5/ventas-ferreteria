@@ -23,6 +23,7 @@ class CreateArticuloTable extends Migration
             $table->string('slug', 180);
             $table->integer('stock');
             $table->text('descripcion');
+            $table->string('descripcion_corta',50);
             $table->string('imagen', 128)->nullable();
             $table->string('estado', 50)->nullable();
             $table->boolean('condicion');

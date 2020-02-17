@@ -13,7 +13,7 @@ class ArticuloController extends Controller
 {
     public function index()
     {
-        $articulos=Articulo::orderBy('id','ASC')->paginate(5);
+        $articulos=Articulo::orderBy('id','ASC')->paginate(6);
         return view('almacen.articulo.index',compact('articulos'));
     }
 
@@ -36,6 +36,7 @@ class ArticuloController extends Controller
         $articulo->slug = $request->get('slug');
         $articulo->stock = $request->get('stock');
         $articulo->descripcion = $request->get('descripcion');
+        $articulo->descripcion_corta = $request->get('descripcion_corta');
         $articulo->estado = 'Activo';
         $articulo->condicion = '1';
 
@@ -74,6 +75,7 @@ class ArticuloController extends Controller
         $articulo->slug = $request->get('slug');
         $articulo->stock = $request->get('stock');
         $articulo->descripcion = $request->get('descripcion');
+        $articulo->descripcion_corta = $request->get('descripcion_corta');
         $articulo->estado = 'Activo';
 
         if (Input::hasFile('imagen')) //Si tiene imagen el campo imagen

@@ -32,7 +32,14 @@ Route::get('inicioAdmin',[
 Route::get('cliente/categoria',[
     'as'=>'cliente/categoria',
     'uses'=>'CategoriaController@indexcliente']);
+
+
+//menu
+Route::get('menus', 'CategoriaController@menus');
+
+
 //registro del producto
+
 Route::post('/compras/registro/', 'DetalleCompraController@store')->name('reproducto.store');
 Route::get('/compras/registro/', 'DetalleCompraController@create')->name('guarda');
 //registro del cliente
