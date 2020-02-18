@@ -29,6 +29,11 @@ Route::get('inicioAdmin',[
     'as'=>'inicioAdmin',
     'uses'=>'StoreController@inicioAdmin']);
 
+Route::get('categorias', 'StoreController@getCategorias');
+Route::get('articulos/{id}', 'StoreController@getArticulos');
+
+Route::get('abrirModal/{id}','StoreController@getModal');
+
 Route::get('cliente/categoria',[
     'as'=>'cliente/categoria',
     'uses'=>'CategoriaController@indexcliente']);

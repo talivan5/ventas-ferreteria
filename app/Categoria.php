@@ -23,7 +23,7 @@ class Categoria extends Model
     public function articulos()
     {
     	//Una Categoria puede tener muchos artículos
-    	return $this->hasMany(Articulo::class);
+    	return $this->hasMany(Articulo::class,'id_categoria');
     }
 
 }

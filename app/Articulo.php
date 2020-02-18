@@ -27,6 +27,6 @@ class Articulo extends Model
     {
     	//Un Articulo puede pertenecer a una Categoria
     	//belongsTo(Categoria::class) relaciona con categoria_id por default
-    	return $this->belongsTo(Categoria::class, 'id_categoria');
+    	return $this->belongsTo(Categoria::class);
     }
 }

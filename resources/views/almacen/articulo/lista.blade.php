@@ -2,41 +2,34 @@
 @section('contenido')
 
 <hr>
-<div class="row">
-	<div class="col col-md-4">
-		<h1>Categorias</h1>
-		@foreach($categorias as $art)
-		<div class="row col-md-12">	
-			<div class="list-group" style="width: 200px;">
-				<a href="{{ asset('/'.$art->id) }}" class="list-group-item list-group-item-action">{{$art->nombre}}</a>
-			</div>			
+<div id="categorias">
+	<div class="row">
+		<div class="col col-md-4">
+			<h1>Categorias</h1>
+			<div class="row col-md-12">	
+				<div v-for="categoria in categorias" class="list-group" style="width: 200px;">
+					<a href="#" @click="listarArticulos(categoria.id)" class="list-group-item list-group-item-action">@{{ categoria.nombre }}</a>
+				</div>			
+			</div>
 		</div>
-		@endforeach
-	</div>
-	<div class="row col col-md-8">
-		@foreach($articulos as $art)
-		<div class="col-md-6">	
-			<div class="card alert alert-primary" style="width: 18rem;">
-				<div class="card-body">			
-					<img class="card-img-top" src="{{ asset('imagenes/articulos/'.$art->imagen) }}" alt="" style="size: 10cm">
-					<h5 class="card-title">Nombre: {{$art->nombre}}</h5>
-					<h6 class="card-text">Precio: {{$art->stock}} bs.</h6>					
-					<button type="button" class="btn btn-success" data-toggle="modal" data-target="#ingresar">
-						Comprar
-					  </button>				
-					<a data-toggle="modal" data-target="#modal-detalle-{{$art->id}}" class="btn btn-info">Detalle</a>	
-				</div>
-			</div>		
-		</div>	
-		@include('almacen.articulo.modalDetalle')		
-		@endforeach
-	</div>
-</div>	
-<br>
-<div class="pagination justify-content-center">
-	{{ $articulos->links() }}
+		<div class="row col col-md-8">
+			
+			<div class="col-md-6" v-for="articulo in articulos">	
+				<div class="card alert alert-primary" style="width: 18rem;">
+					<div class="card-body">			
+						<img class="card-img-top" :src="'imagenes/articulos/'+ articulo.imagen" alt="" style="size: 10cm">
+						<h5 class="card-title">Nombre: @{{articulo.nombre}}</h5>
+						<h6 class="card-text">Precio: @{{articulo.stock}} bs.</h6>					
+						<button type="button" class="btn btn-success" data-toggle="modal" data-target="#ingresar">
+							Comprar
+						  </button>				
+						<a data-toggle="modal" @click="abrirModal(articulo.id)" class="btn btn-info">Detalle</a>
+					</div>
+				</div>				
+			</div>
+		</div>
+	</div>	
 </div>
-
 <div class="modal fade" id="ingresar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
